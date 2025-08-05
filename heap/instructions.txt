@@ -1,4 +1,0 @@
-Selected Node: index
-Parent: (Index - 2) / 2
-Left: Index * 2 + 1
-Right: Index * 2 + 2
