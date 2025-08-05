@@ -14,10 +14,10 @@ public class Main {
             print(i);
         }
 
-        Sorter.bubbleSort(array);
+        int[] newArray = Sorter.countingSort(array);
 
         print("After:");
-        for(int i : array) {
+        for(int i : newArray) {
             print(i);
         }
 

@@ -1,5 +1,8 @@
 package sorting;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Sorter {
 
     public static void quickSort(int[] arr, int low, int high) {
@@ -49,6 +52,27 @@ public class Sorter {
             }
         if(!swapped) break;
         }
+    }
+    
+    public static int[] countingSort(int[] arr) {
+        Map<Integer, Integer> buckets = new TreeMap<>();
+        for(int i = 0; i < arr.length; i++ ) {
+            if(!buckets.containsKey(arr[i])) {
+                buckets.put(arr[i], 1);
+                continue;
+            }
+            int counter = buckets.get(arr[i]) + 1;
+            buckets.put(arr[i], counter);
+        }
+        int pointer = 0;
+        int[] newArray = new int[arr.length];
+        for(Map.Entry<Integer, Integer> entry : buckets.entrySet()) {
+            for(int i = 0; i < entry.getValue(); i++) {
+                newArray[pointer] = entry.getKey();
+                pointer++;
+            }
+        }
+        return newArray;
     }
 
     private static void swap(int[] arr, int index1, int index2) {
