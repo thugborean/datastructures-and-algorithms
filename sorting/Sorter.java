@@ -24,6 +24,19 @@ public class Sorter {
         quickSort(arr, lp + 1, high);
     }
 
+    public static void selectionSort(int[] arr) {
+        int smallest = 0;
+        int pointer = 0;
+        while(pointer < arr.length) {
+            smallest = pointer;
+            for(int i = pointer; i < arr.length; i++) {
+                if(arr[smallest] > arr[i]) smallest = i;
+            }
+            swap(arr, smallest, pointer);
+            pointer++;
+        }
+    }
+
     private static void swap(int[] arr, int index1, int index2) {
         int temp = arr[index1]; // The value of index2
         arr[index1] = arr[index2];
